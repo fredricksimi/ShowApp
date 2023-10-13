@@ -5,9 +5,9 @@ export const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <NavLink className="navbar-brand" to="/">
             ShowApp
-          </a>
+          </NavLink>
           <button
             className="navbar-toggler"
             type="button"

@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar";
 
 type Movie = {
   id: number;
+  backdrop_path: string | null;
   release_date: string;
   overview: string;
   original_title: string;
@@ -56,6 +57,7 @@ export const MovieDetails = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
   return (
     <>
       <Navbar />
