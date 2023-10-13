@@ -42,7 +42,7 @@ export const TopRatedShows = () => {
       {tshows.map((show) => (
         <div key={show.id} className="col-md-2">
           <div className="d-flex justify-content-center mt-5">
-            <Link to={`show-details/${show.id}`}>
+            <Link to={`/show-details/${show.id}`}>
             <img
               src={`https://image.tmdb.org/t/p/original${show.poster_path}`}
               className="img-fluid"
@@ -54,7 +54,7 @@ export const TopRatedShows = () => {
             <p>{getYear(show.first_air_date)}</p>
             <p>{show.vote_average.toFixed(1)}</p>
           </div>
-          <Link to={`show-details/${show.id}`}>
+          <Link to={`/show-details/${show.id}`} style={{color: 'black', textDecoration: 'none'}}>
             <p className="text-center"><b>{show.original_name}</b></p>
           </Link>
         </div>

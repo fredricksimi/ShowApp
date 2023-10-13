@@ -54,7 +54,7 @@ export const TrendingShows = () => {
             <p>{getYear(show.first_air_date)}</p>
             <p>{show.vote_average.toFixed(1)}</p>
           </div>
-          <Link to={`show-details/${show.id}`}>
+          <Link to={`show-details/${show.id}`} style={{color: 'black', textDecoration: 'none'}}>
           <p className="text-center"><b>{show.original_name}</b></p>
           </Link>
         </div>

@@ -50,7 +50,7 @@ export const TrendingMovies = () => {
             <p>{getYear(movie.release_date)}</p>
             <p>{movie.vote_average.toFixed(1)}</p>
           </div>
-          <Link to={`movie-details/${movie.id}`}>
+          <Link to={`movie-details/${movie.id}`} style={{color: 'black', textDecoration: 'none'}}>
             <p className="text-center">
               <b>{movie.title}</b>
             </p>
