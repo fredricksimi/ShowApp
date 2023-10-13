@@ -1,8 +1,12 @@
 import { Navbar } from "./components/Navbar";
 import { TrendingMovies } from "./components/TrendingMovies";
 import { TrendingShows } from "./components/TrendingShows";
+import { useEffect } from "react";
 
 export const Home = () => {
+  useEffect(() => {
+    document.title = "ShowApp - Home";
+  });
   return (
     <>
       <Navbar />

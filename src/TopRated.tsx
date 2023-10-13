@@ -1,8 +1,11 @@
 import { Navbar } from "./components/Navbar";
 import { TopRatedShows } from "./components/TopRatedShows";
 import { TopRatedMovies } from "./components/TopRatedMovies";
-
+import { useEffect } from 'react'
 export const TopRated = () => {
+  useEffect(() => {
+    document.title = "ShowApp - Top Rated";
+  })
   return (
     <>
       <Navbar />
