@@ -5,6 +5,7 @@ import { Movie, iMovie } from "./Movie";
 
 export const TrendingMovies = () => {
   const [tmovies, setTmovies] = useState<iMovie[]>([]);
+  
   useEffect(() => {
     axios
       .get("https://api.themoviedb.org/3/trending/movie/week", {
