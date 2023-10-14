@@ -13,7 +13,7 @@ export const SearchResults = () => {
   const [results, setResults] = useState<Result | null>(null);
   const { search_query } = useParams();
   useEffect(() => {
-    document.title = "ShowApp - Search Results"
+    document.title = "ShowApp - Search Results";
     axios
       .get(
         `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${search_query}&page=1&include_adult=False`
