@@ -1,7 +1,12 @@
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import { useRef } from 'react'
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  
+  function sendSearch(){
+    navigate(`/search/${searchRef.current?.value}`)
+  }
   const searchRef = useRef<HTMLInputElement>(null)
   return (
     <>
@@ -53,18 +58,12 @@ export const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
-            <form className="d-flex" role="search" onSubmit={() => {
-              
-              if (searchRef.current?.value){
-                // console.log(searchRef.current.value)
-                <Route to={`/search-results/${searchRef.current.value}`}/>
-              }
-            }}>
+            <form className="d-flex" role="search" onSubmit={() => sendSearch()}>
               <input
                 className="form-control me-2"
                 ref={searchRef}
                 type="search"
-                placeholder="Search"
+                placeholder="Search Movie or TV Show"
                 aria-label="Search"
               />
               <button className="btn btn-outline-success" type="submit">
