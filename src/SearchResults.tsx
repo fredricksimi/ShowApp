@@ -1,21 +1,19 @@
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Navbar } from "./components/Navbar";
+import getYear from "./components/getYear";
 import axios from "axios";
+import { API_KEY } from "./components/apiKey";
 
 interface Result {
   results: [];
 }
 
 export const SearchResults = () => {
-  function getYear(thedate: string) {
-    const d = new Date(thedate);
-    return d.getFullYear();
-  }
   const [results, setResults] = useState<Result | null>(null);
   const { search_query } = useParams();
   useEffect(() => {
-    const API_KEY = "b7c76c452048ffd45da7273b7620bb43";
+    document.title = "ShowApp - Search Results"
     axios
       .get(
         `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&language=en-US&query=${search_query}&page=1&include_adult=False`

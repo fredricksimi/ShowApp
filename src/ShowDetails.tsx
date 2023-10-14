@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
+import { API_KEY } from "./components/apiKey";
 
 type Show = {
   id: number;
@@ -32,7 +33,6 @@ export const ShowDetails = () => {
   const [actors, setActors] = useState<Cast | null>(null);
 
   useEffect(() => {
-    const API_KEY = "b7c76c452048ffd45da7273b7620bb43";
     axios
       .get(`https://api.themoviedb.org/3/tv/${show_id}`, {
         params: {
@@ -40,8 +40,8 @@ export const ShowDetails = () => {
         },
       })
       .then((response) => {
-        const theTrendingMovies = response.data as Show;
-        setDetails(theTrendingMovies);
+        const theShow = response.data as Show;
+        setDetails(theShow);
       })
       .catch((err) => console.log(err));
 

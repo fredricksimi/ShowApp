@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { API_KEY } from "./apiKey";
+import getYear from "./getYear";
 
 interface TopShow {
   id: number,
@@ -12,15 +14,9 @@ interface TopShow {
 
 export const TopRatedShows = () => {
 
-  function getYear(thedate: string) {
-    const d = new Date(thedate)
-    return d.getFullYear();
-  }
-
   const [tshows, setTshows] = useState<TopShow[]>([]);
 
   useEffect(() => {
-    const API_KEY = 'b7c76c452048ffd45da7273b7620bb43'
     axios
       .get(
         "https://api.themoviedb.org/3/tv/top_rated",{
@@ -31,7 +27,6 @@ export const TopRatedShows = () => {
       )
       .then((response) => {
         const theTrendingMovies = response.data.results as TopShow[];
-        console.log(theTrendingMovies)
         setTshows(theTrendingMovies)
       })
       .catch((err) => console.log(err));
