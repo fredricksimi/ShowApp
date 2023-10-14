@@ -1,6 +1,8 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
+import { useRef } from 'react'
 
 export const Navbar = () => {
+  const searchRef = useRef<HTMLInputElement>(null)
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -22,23 +24,53 @@ export const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "nav-link active" : "nav-link"
-  } aria-current="page" to="/">
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? "nav-link active"
+                      : "nav-link"
+                  }
+                  aria-current="page"
+                  to="/"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={({ isActive, isPending }) =>
-    isPending ? "pending" : isActive ? "nav-link active" : "nav-link"
-  } to="/top-rated">
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? "nav-link active"
+                      : "nav-link"
+                  }
+                  to="/top-rated"
+                >
                   Top Rated
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
-              </li>
             </ul>
+            <form className="d-flex" role="search" onSubmit={() => {
+              
+              if (searchRef.current?.value){
+                // console.log(searchRef.current.value)
+                <Route to={`/search-results/${searchRef.current.value}`}/>
+              }
+            }}>
+              <input
+                className="form-control me-2"
+                ref={searchRef}
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button className="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
           </div>
         </div>
       </nav>
