@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import getYear from "./components/getYear";
 import axios from "axios";
 import { API_KEY } from "./components/apiKey";
+import Filter from "./components/Filter";
 
 interface Result {
   results: [];
@@ -25,6 +26,7 @@ export const SearchResults = () => {
   return (
     <>
       <Navbar />
+      <Filter />
       <div className="container">
         <div className="row">
           {results?.results.map((result) => (
