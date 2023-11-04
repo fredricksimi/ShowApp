@@ -1,1 +1,1 @@
-export const API_KEY = 'b7c76c452048ffd45da7273b7620bb43'
+export const API_KEY = import.meta.env.VITE_API_KEY
