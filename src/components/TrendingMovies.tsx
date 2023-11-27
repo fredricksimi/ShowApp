@@ -23,7 +23,7 @@ export const TrendingMovies = () => {
   return (
     <>
       {tmovies.map((movie) => (
-        <Movie
+        <Movie key={movie.id}
           id={movie.id}
           poster_path={movie.poster_path}
           release_date={movie.release_date}

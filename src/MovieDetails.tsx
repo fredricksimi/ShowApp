@@ -61,51 +61,43 @@ export const MovieDetails = () => {
   return (
     <>
       <Navbar />
-      <div className="container mt-5">
-        <div className="row mt-5">
-          <div className="col-md-4">
-            <div className="d-flex justify-content-center">
-              <img
-                src={`https://image.tmdb.org/t/p/original${details?.poster_path}`}
-                className="img-fluid"
-                style={imgStyle}
-              />
+      <div className="container md:px-24 mx-auto px-8 mt-5">
+        <div className="grid md:grid-cols-12 grid-cols-1 gap-4 md:mt-24 mt-12">
+            <div className="md:col-span-4 col-span-1">
+              <div className="flex justify-center">
+                <img src={`https://image.tmdb.org/t/p/original${details?.poster_path}`} className="md:h-96 md:w-auto h-80 w-auto"/>
+              </div>
             </div>
-          </div>
-          <div className="col-md-8">
-            <h3>
-              <b>{details?.original_title}</b>
-            </h3>
-            <p className="mt-3">{details?.overview}</p>
-            <p>
-              <b>IMDb Rating:</b> {details?.vote_average.toFixed(1)}
-            </p>
-            <p>
-              <b>Release Date:</b> {details?.release_date}
-            </p>
-            <p>
-              <b>Cast: </b>{" "}
+            <div className="md:col-span-8 col-span-1">
+              <h1 className="font-bold text-3xl mb-5">{details?.original_title}</h1>
+              <p className="my-3">{details?.overview}</p>
+              <p className="my-3">
+                <span className="font-bold">IMDb Rating:</span> {details?.vote_average.toFixed(1)}
+              </p>
+              <p className="my-3">
+                <span className="font-bold">Release Date:</span> {details?.release_date}
+              </p>
+              <p className="my-3">
+                <span className="font-bold">Cast:</span>{" "}
               {actors?.cast
                 .slice(0, 7)
                 .map((cast) => cast["name"])
                 .join(", ")}
-            </p>
-            <p>
-              <b>Runtime:</b> {details?.runtime} minutes
-            </p>
-            <p>
-              <b>Genre(s): </b>
-              {details?.genres.map((genre) => genre["name"]).join(", ")}
-            </p>
-            <p>
-              <b>Production Companies: </b>
-              {details?.production_companies
+              </p>
+              <p className="my-3">
+                <span className="font-bold">Runtime:</span> {details?.runtime} minutes
+              </p>
+              <p className="my-3">
+                <span className="font-bold">Genre(s):</span> {details?.genres.map((genre) => genre["name"]).join(", ")}
+              </p>
+              <p className="my-3">
+                <span className="font-bold">Production Companies:</span> {details?.production_companies
                 .map((proco) => proco["name"])
                 .join(", ")}
-            </p>
-          </div>
+              </p>
+            </div>
         </div>
-      </div>
+    </div>
     </>
   );
 };

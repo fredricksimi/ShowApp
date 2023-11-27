@@ -22,7 +22,7 @@ export const TrendingShows = () => {
   return (
     <>
       {tshows.map((show) => (
-        <Show
+        <Show key={show.id}
           id={show.id}
           poster_path={show.poster_path}
           first_air_date={show.first_air_date}

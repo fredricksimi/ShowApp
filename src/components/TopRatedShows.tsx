@@ -35,24 +35,23 @@ export const TopRatedShows = () => {
   return (
     <>
       {tshows.map((show) => (
-        <div key={show.id} className="col-md-2">
-          <div className="d-flex justify-content-center mt-5">
-            <Link to={`/show-details/${show.id}`}>
-            <img
-              src={`https://image.tmdb.org/t/p/original${show.poster_path}`}
-              className="img-fluid"
-              alt={show.id.toString()}
-            />
-            </Link>
-          </div>
-          <div className="d-flex justify-content-between px-3">
-            <p>{getYear(show.first_air_date)}</p>
-            <p>{show.vote_average.toFixed(1)}</p>
-          </div>
-          <Link to={`/show-details/${show.id}`} style={{color: 'black', textDecoration: 'none'}}>
-            <p className="text-center"><b>{show.original_name}</b></p>
+        <div key={show.id} className="md:mb-10 mb-5">
+        <div className="flex justify-center">
+        <Link to={`/show-details/${show.id}`}>
+          <img
+            src={`https://image.tmdb.org/t/p/original${show.poster_path}`}
+            className="md:h-72 md:w-auto h-60 w-auto" alt={show.id.toString()}
+          />
           </Link>
         </div>
+        <div className="flex justify-between sm:px-10 sm:pt-3 px-4 pt-2">
+          <p>{getYear(show.first_air_date)}</p>
+          <p>{show.vote_average.toFixed(1)}</p>
+        </div>
+        <Link to={`/show-details/${show.id}`} style={{color: 'black', textDecoration: 'none'}}>
+          <h2 className="text-center font-bold sm:mt-2 mt-1">{show.original_name}</h2>
+        </Link>
+      </div>
       ))}
     </>
   );
