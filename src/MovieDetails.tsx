@@ -22,11 +22,6 @@ type Cast = {
   cast: [];
 };
 
-const imgStyle = {
-  height: "400px",
-  width: "auto",
-};
-
 export const MovieDetails = () => {
   const { movie_id } = useParams<{ movie_id: string }>();
   const [details, setDetails] = useState<Movie | null>(null);

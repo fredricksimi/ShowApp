@@ -22,11 +22,6 @@ type Cast = {
   cast: [];
 };
 
-const imgStyle = {
-  height: "400px",
-  width: "auto",
-};
-
 export const ShowDetails = () => {
   const { show_id } = useParams<{ show_id: string }>();
   const [details, setDetails] = useState<Show | null>(null);
